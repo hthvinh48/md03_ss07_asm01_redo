@@ -26,4 +26,8 @@ public class Candidate {
     private int age;
 
     private int yearsOfExperience;
+
+    private String address;
+
+    private String bio;
 }

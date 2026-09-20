@@ -25,4 +25,10 @@ public class GlobalExceptionHandler {
 
         return new ApiResponse<>("FAIL", "Dữ liệu đầu vào không hợp lệ", errors);
     }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public ApiResponse<Void> handleResourceNotFoundException(ResourceNotFoundException ex) {
+        return new ApiResponse<>("FAIL", ex.getMessage(), null);
+    }
 }
