@@ -20,6 +20,8 @@ public class Job {
     private String description;
     private String category;
     private String location;
+    private double salaryMin;
+    private double salaryMax;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id", nullable = false)

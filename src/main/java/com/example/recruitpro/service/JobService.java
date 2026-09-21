@@ -25,6 +25,10 @@ public class JobService {
                 () -> new ResourceNotFoundException("Company Not Found")
         );
 
+        if (jobCreateDTO.getSalaryMin() > jobCreateDTO.getSalaryMax()) {
+            throw new IllegalArgumentException("Lương tối thiểu không được lớn hơn lương tối đa");
+        }
+
         Job job = new Job();
         job.setTitle(jobCreateDTO.getTitle());
         job.setCompany(company);

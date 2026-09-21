@@ -31,4 +31,10 @@ public class GlobalExceptionHandler {
     public ApiResponse<Void> handleResourceNotFoundException(ResourceNotFoundException ex) {
         return new ApiResponse<>("FAIL", ex.getMessage(), null);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiResponse<Void> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return new ApiResponse<>("FAIL", ex.getMessage(), null);
+    }
 }
